@@ -3,6 +3,7 @@ package juego;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.UIManager;
 
 public class Ventana_Inicio {
 
@@ -28,6 +29,12 @@ public class Ventana_Inicio {
 	 * Create the application.
 	 */
 	public Ventana_Inicio() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getLookAndFeel());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		initialize();
 	}
 
