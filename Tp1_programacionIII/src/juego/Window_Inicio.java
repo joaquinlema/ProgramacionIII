@@ -3,9 +3,8 @@ package juego;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.UIManager;
 
-public class Ventana_Inicio {
+public class Window_Inicio {
 
 	private JFrame frame;
 
@@ -16,7 +15,7 @@ public class Ventana_Inicio {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Ventana_Inicio window = new Ventana_Inicio();
+					Window_Inicio window = new Window_Inicio();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -28,13 +27,7 @@ public class Ventana_Inicio {
 	/**
 	 * Create the application.
 	 */
-	public Ventana_Inicio() {
-		try {
-			UIManager.setLookAndFeel(UIManager.getLookAndFeel());
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
+	public Window_Inicio() {
 		initialize();
 	}
 
