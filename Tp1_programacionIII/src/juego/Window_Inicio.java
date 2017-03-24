@@ -11,12 +11,14 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
+import java.util.Timer;
 import java.awt.event.ActionEvent;
 
 public class Window_Inicio {
 
 	private JFrame frame;
-
+	private Timer time;
+	private int count = 0;
 	/**
 	 * Launch the application.
 	 */
@@ -45,7 +47,7 @@ public class Window_Inicio {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 411);
+		frame.setBounds(100, 100, 415, 411);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -94,6 +96,10 @@ public class Window_Inicio {
 		lblTiempoCont.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblTiempoCont.setBounds(74, 279, 46, 14);
 		frame.getContentPane().add(lblTiempoCont);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(10, 249, 379, 2);
+		frame.getContentPane().add(separator_1);
 		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
