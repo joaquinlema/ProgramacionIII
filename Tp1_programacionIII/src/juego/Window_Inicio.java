@@ -4,6 +4,12 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JSeparator;
 
 public class Window_Inicio {
 
@@ -77,7 +83,31 @@ public class Window_Inicio {
 		btn9.setBounds(262, 167, 127, 71);
 		frame.getContentPane().add(btn9);
 		
+		JLabel lblTiempo = new JLabel("Tiempo:");
+		lblTiempo.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTiempo.setBounds(10, 275, 57, 22);
+		frame.getContentPane().add(lblTiempo);
+		
+		JLabel lblTiempoCont = new JLabel("0");
+		lblTiempoCont.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTiempoCont.setBounds(72, 281, 46, 14);
+		frame.getContentPane().add(lblTiempoCont);
+		
+		JMenuBar menuBar = new JMenuBar();
+		frame.setJMenuBar(menuBar);
+		
+		JMenu mnInicio = new JMenu("Inicio");
+		menuBar.add(mnInicio);
+		
+		JMenuItem mntmNuevoJuego = new JMenuItem("Nuevo Juego");
+		mnInicio.add(mntmNuevoJuego);
+		
+		JSeparator separator = new JSeparator();
+		mnInicio.add(separator);
+		
+		JMenuItem mntmSalir = new JMenuItem("Salir");
+		mnInicio.add(mntmSalir);
+		
 		
 	}
-
 }
