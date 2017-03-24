@@ -10,6 +10,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Window_Inicio {
 
@@ -90,7 +92,7 @@ public class Window_Inicio {
 		
 		JLabel lblTiempoCont = new JLabel("0");
 		lblTiempoCont.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTiempoCont.setBounds(72, 281, 46, 14);
+		lblTiempoCont.setBounds(74, 279, 46, 14);
 		frame.getContentPane().add(lblTiempoCont);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -100,12 +102,23 @@ public class Window_Inicio {
 		menuBar.add(mnInicio);
 		
 		JMenuItem mntmNuevoJuego = new JMenuItem("Nuevo Juego");
+		mntmNuevoJuego.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Window_Inicio nuevo = new Window_Inicio();
+				nuevo.frame.setVisible(true);
+			}
+		});
 		mnInicio.add(mntmNuevoJuego);
 		
 		JSeparator separator = new JSeparator();
 		mnInicio.add(separator);
 		
 		JMenuItem mntmSalir = new JMenuItem("Salir");
+		mntmSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(JFrame.EXIT_ON_CLOSE);
+			}
+		});
 		mnInicio.add(mntmSalir);
 		
 		
