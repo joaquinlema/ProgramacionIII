@@ -21,6 +21,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Window_Inicio implements KeyListener{
 
@@ -111,8 +113,8 @@ public class Window_Inicio implements KeyListener{
 		btn9.setVisible(false);
 		
 		JLabel lblTiempo = new JLabel("Tiempo:");
-		lblTiempo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTiempo.setBounds(10, 275, 57, 22);
+		lblTiempo.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblTiempo.setBounds(206, 0, 57, 16);
 		frame.getContentPane().add(lblTiempo);
 		
 		JSeparator separator_1 = new JSeparator();
@@ -149,20 +151,25 @@ public class Window_Inicio implements KeyListener{
 		mnInicio.add(separator);
 		
 		JButton btnArriba = new JButton("Arriba");
-		btnArriba.setBounds(245, 270, 77, 23);
+		btnArriba.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btn9.setVisible(true);
+			}
+		});
+		btnArriba.setBounds(161, 262, 77, 23);
 		frame.getContentPane().add(btnArriba);
 		
 		JButton btnAbajo = new JButton("Abajo");
-		btnAbajo.setHorizontalAlignment(SwingConstants.LEFT);
-		btnAbajo.setBounds(245, 316, 77, 23);
+		btnAbajo.setBounds(161, 308, 77, 23);
 		frame.getContentPane().add(btnAbajo);
 		
 		JButton btnIzquierda = new JButton("Izquierda");
-		btnIzquierda.setBounds(193, 293, 89, 23);
+		btnIzquierda.setBounds(109, 285, 89, 23);
 		frame.getContentPane().add(btnIzquierda);
 		
 		JButton btnDerecha = new JButton("Derecha");
-		btnDerecha.setBounds(280, 293, 89, 23);
+		btnDerecha.setBounds(196, 285, 89, 23);
 		frame.getContentPane().add(btnDerecha);
 		
 		JLabel lblJugador = new JLabel("Jugador:");
