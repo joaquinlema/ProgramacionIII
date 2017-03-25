@@ -12,14 +12,22 @@ import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Timer;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
-public class Window_Inicio {
+public class Window_Inicio implements KeyListener{
 
 	private JFrame frame;
 	private int[][] posNum;
 	private ArrayList<JButton> botones;
-	
+	private int contMov;
+	private String prueba;
+	private JTextField txtTiempo;
 	/**
 	 * Launch the application.
 	 */
@@ -51,7 +59,7 @@ public class Window_Inicio {
 		frame.setBounds(100, 100, 415, 411);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setResizable(false);;
+		frame.setResizable(false);
 		
 		JButton btn1 = new JButton("1");
 		btn1.setBounds(10, 27, 127, 71);
@@ -88,16 +96,12 @@ public class Window_Inicio {
 		JButton btn9 = new JButton("9");
 		btn9.setBounds(262, 167, 127, 71);
 		frame.getContentPane().add(btn9);
+		btn9.setVisible(false);
 		
 		JLabel lblTiempo = new JLabel("Tiempo:");
 		lblTiempo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblTiempo.setBounds(10, 275, 57, 22);
 		frame.getContentPane().add(lblTiempo);
-		
-		JLabel lblTiempoCont = new JLabel("0");
-		lblTiempoCont.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTiempoCont.setBounds(74, 279, 46, 14);
-		frame.getContentPane().add(lblTiempoCont);
 		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(10, 249, 379, 2);
@@ -116,10 +120,8 @@ public class Window_Inicio {
 				nuevo.frame.setVisible(true);
 			}
 		});
-		mnInicio.add(mntmNuevoJuego);
 		
-		JSeparator separator = new JSeparator();
-		mnInicio.add(separator);
+		mnInicio.add(mntmNuevoJuego);
 		
 		JMenuItem mntmSalir = new JMenuItem("Salir");
 		mntmSalir.addActionListener(new ActionListener() {
@@ -127,12 +129,39 @@ public class Window_Inicio {
 				System.exit(JFrame.EXIT_ON_CLOSE);
 			}
 		});
+		
 		mnInicio.add(mntmSalir);
-
+		
+		JSeparator separator = new JSeparator();
+		mnInicio.add(separator);
+		
 		cargarBtnVal(btn1, btn2, btn4, btn7, btn3, btn5, btn6, btn8, btn9);
+		
+		JButton btnArriba = new JButton("Arriba");
+		btnArriba.setBounds(245, 270, 77, 23);
+		frame.getContentPane().add(btnArriba);
+		
+		JButton btnAbajo = new JButton("Abajo");
+		btnAbajo.setHorizontalAlignment(SwingConstants.LEFT);
+		btnAbajo.setBounds(245, 316, 77, 23);
+		frame.getContentPane().add(btnAbajo);
+		
+		JButton btnIzquierda = new JButton("Izquierda");
+		btnIzquierda.setBounds(193, 293, 89, 23);
+		frame.getContentPane().add(btnIzquierda);
+		
+		JButton btnDerecha = new JButton("Derecha");
+		btnDerecha.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnDerecha.setBounds(280, 293, 89, 23);
+		frame.getContentPane().add(btnDerecha);
 		cargarMatriz();
+		
 	}
 
+	//crea matriz para las posiciones de los numeros y los carga con los valores de cada boton
 	private void cargarMatriz() {
 		posNum = new int[3][3];
 		int k = 0;
@@ -144,6 +173,7 @@ public class Window_Inicio {
 		}
 	}
 
+	//array con los botones 
 	private void cargarBtnVal(JButton btn1, JButton btn2, JButton btn4, JButton btn7, JButton btn3, JButton btn5,
 			JButton btn6, JButton btn8, JButton btn9) {
 		botones = new ArrayList<>();
@@ -156,5 +186,22 @@ public class Window_Inicio {
 		botones.add(btn7);
 		botones.add(btn8);
 		botones.add(btn9);
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
