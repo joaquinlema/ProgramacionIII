@@ -129,6 +129,7 @@ public class Window_Inicio implements KeyListener{
 		mntmNuevoJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Window_Inicio nuevo = new Window_Inicio();
+				frame.dispose();
 				nuevo.frame.setVisible(true);
 			}
 		});
