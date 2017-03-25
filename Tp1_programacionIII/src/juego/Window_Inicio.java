@@ -11,14 +11,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
-import java.util.Timer;
 import java.awt.event.ActionEvent;
 
 public class Window_Inicio {
 
 	private JFrame frame;
-	private Timer time;
-	private int count = 0;
 	/**
 	 * Launch the application.
 	 */
@@ -41,7 +38,6 @@ public class Window_Inicio {
 	public Window_Inicio() {
 		initialize();
 	}
-
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -50,6 +46,7 @@ public class Window_Inicio {
 		frame.setBounds(100, 100, 415, 411);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);;
 		
 		JButton btn1 = new JButton("1");
 		btn1.setBounds(10, 27, 127, 71);
@@ -126,7 +123,6 @@ public class Window_Inicio {
 			}
 		});
 		mnInicio.add(mntmSalir);
-		
-		
 	}
+	
 }
