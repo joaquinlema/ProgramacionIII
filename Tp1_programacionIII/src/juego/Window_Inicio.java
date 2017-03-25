@@ -11,11 +11,15 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class Window_Inicio {
 
 	private JFrame frame;
+	private int[][] posNum;
+	private ArrayList<JButton> botones;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -42,6 +46,7 @@ public class Window_Inicio {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 415, 411);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,7 +56,7 @@ public class Window_Inicio {
 		JButton btn1 = new JButton("1");
 		btn1.setBounds(10, 27, 127, 71);
 		frame.getContentPane().add(btn1);
-		
+	
 		JButton btn2 = new JButton("2");
 		btn2.setBounds(136, 27, 127, 71);
 		frame.getContentPane().add(btn2);
@@ -80,7 +85,7 @@ public class Window_Inicio {
 		btn8.setBounds(136, 167, 127, 71);
 		frame.getContentPane().add(btn8);
 		
-		JButton btn9 = new JButton("\"\"");
+		JButton btn9 = new JButton("9");
 		btn9.setBounds(262, 167, 127, 71);
 		frame.getContentPane().add(btn9);
 		
@@ -123,6 +128,33 @@ public class Window_Inicio {
 			}
 		});
 		mnInicio.add(mntmSalir);
+
+		cargarBtnVal(btn1, btn2, btn4, btn7, btn3, btn5, btn6, btn8, btn9);
+		cargarMatriz();
 	}
-	
+
+	private void cargarMatriz() {
+		posNum = new int[3][3];
+		int k = 0;
+		for (int i = 0; i < posNum.length; i++) {
+			for (int j = 0; j < posNum.length; j++) {
+				posNum[i][j] = Integer.parseInt(botones.get(k).getText());
+				k++;
+			}
+		}
+	}
+
+	private void cargarBtnVal(JButton btn1, JButton btn2, JButton btn4, JButton btn7, JButton btn3, JButton btn5,
+			JButton btn6, JButton btn8, JButton btn9) {
+		botones = new ArrayList<>();
+		botones.add(btn1);
+		botones.add(btn2);
+		botones.add(btn3);
+		botones.add(btn4);
+		botones.add(btn5);
+		botones.add(btn6);
+		botones.add(btn7);
+		botones.add(btn8);
+		botones.add(btn9);
+	}
 }
