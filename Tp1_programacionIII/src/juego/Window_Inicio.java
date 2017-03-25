@@ -19,6 +19,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 public class Window_Inicio implements KeyListener{
 
@@ -48,6 +50,16 @@ public class Window_Inicio implements KeyListener{
 	 * Create the application.
 	 */
 	public Window_Inicio() {
+		try {
+		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		        if ("Nimbus".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
+		} catch (Exception e) {
+		    // If Nimbus is not available, you can set the GUI to another look and feel.
+		}
 		initialize();
 	}
 	/**
@@ -135,8 +147,6 @@ public class Window_Inicio implements KeyListener{
 		JSeparator separator = new JSeparator();
 		mnInicio.add(separator);
 		
-		cargarBtnVal(btn1, btn2, btn4, btn7, btn3, btn5, btn6, btn8, btn9);
-		
 		JButton btnArriba = new JButton("Arriba");
 		btnArriba.setBounds(245, 270, 77, 23);
 		frame.getContentPane().add(btnArriba);
@@ -151,12 +161,10 @@ public class Window_Inicio implements KeyListener{
 		frame.getContentPane().add(btnIzquierda);
 		
 		JButton btnDerecha = new JButton("Derecha");
-		btnDerecha.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnDerecha.setBounds(280, 293, 89, 23);
 		frame.getContentPane().add(btnDerecha);
+		
+		cargarBtnVal(btn1, btn2, btn4, btn7, btn3, btn5, btn6, btn8, btn9);
 		cargarMatriz();
 		
 	}
