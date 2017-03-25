@@ -33,11 +33,11 @@ public class Window_Inicio implements KeyListener{
 	/**
 	 * Launch the application.
 	 */
-	public static void newScreen() {
+	public static void newScreen(String nom) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Window_Inicio window = new Window_Inicio();
+					Window_Inicio window = new Window_Inicio(nom);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,7 +49,7 @@ public class Window_Inicio implements KeyListener{
 	/**
 	 * Create the application.
 	 */
-	public Window_Inicio() {
+	public Window_Inicio(String nom) {
 		try {
 		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
 		        if ("Nimbus".equals(info.getName())) {
@@ -60,12 +60,12 @@ public class Window_Inicio implements KeyListener{
 		} catch (Exception e) {
 		    // If Nimbus is not available, you can set the GUI to another look and feel.
 		}
-		initialize();
+		initialize(nom);
 	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String nom) {
 		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 415, 411);
@@ -128,7 +128,7 @@ public class Window_Inicio implements KeyListener{
 		JMenuItem mntmNuevoJuego = new JMenuItem("Nuevo Juego");
 		mntmNuevoJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Window_Inicio nuevo = new Window_Inicio();
+				Window_Inicio nuevo = new Window_Inicio(nom);
 				frame.dispose();
 				nuevo.frame.setVisible(true);
 			}
@@ -164,6 +164,15 @@ public class Window_Inicio implements KeyListener{
 		JButton btnDerecha = new JButton("Derecha");
 		btnDerecha.setBounds(280, 293, 89, 23);
 		frame.getContentPane().add(btnDerecha);
+		
+		JLabel lblJugador = new JLabel("Jugador:");
+		lblJugador.setBounds(10, 0, 57, 14);
+		frame.getContentPane().add(lblJugador);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(63, 0, 89, 14);
+		frame.getContentPane().add(lblNewLabel);
+		lblNewLabel.setText(nom);
 		
 		cargarBtnVal(btn1, btn2, btn4, btn7, btn3, btn5, btn6, btn8, btn9);
 		cargarMatriz();

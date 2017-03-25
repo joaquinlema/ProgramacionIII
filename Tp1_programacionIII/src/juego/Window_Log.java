@@ -59,7 +59,7 @@ public class Window_Log {
 		JButton btnComenzar = new JButton("Comenzar");
 		btnComenzar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Window_Inicio.newScreen();
+				Window_Inicio.newScreen(txtNombre.getText());
 				frame.dispose();
 			}
 		});
