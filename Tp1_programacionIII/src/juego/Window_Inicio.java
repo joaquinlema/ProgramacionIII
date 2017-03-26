@@ -24,7 +24,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Window_Inicio implements KeyListener{
+public class Window_Inicio {
 
 	private JFrame frame;
 	private int[][] posNum;
@@ -215,22 +215,5 @@ public class Window_Inicio implements KeyListener{
 		botones.add(btn7);
 		botones.add(btn8);
 		botones.add(btn9);
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 }
