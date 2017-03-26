@@ -29,7 +29,8 @@ public class Window_Inicio {
 	private JFrame frame;
 	private int[][] posNum;
 	private ArrayList<JButton> botones;
-	private int cantMov;
+	private int cantMov = 1;
+	//private Temporalizador tiempo;
 	/**
 	 * Launch the application.
 	 */
@@ -66,6 +67,8 @@ public class Window_Inicio {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(String nom) {
+		//tiempo = new Temporalizador();
+		//tiempo.start();
 		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 415, 411);
@@ -77,6 +80,11 @@ public class Window_Inicio {
 		lblTiempo.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblTiempo.setBounds(195, -1, 57, 16);
 		frame.getContentPane().add(lblTiempo);
+		
+		JLabel lblTemp = new JLabel("0");
+		lblTemp.setBounds(239, 0, 46, 14);
+		frame.getContentPane().add(lblTemp);
+		//lblTemp.setText(""+tiempo.valorSeg());
 		
 		JLabel lblJugador = new JLabel("Jugador:");
 		lblJugador.setBounds(10, 0, 57, 14);
@@ -152,6 +160,7 @@ public class Window_Inicio {
 		JMenuItem mntmSalir = new JMenuItem("Salir");
 		mntmSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			//	tiempo.stop();
 				System.exit(JFrame.EXIT_ON_CLOSE);
 			}
 		});
