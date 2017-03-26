@@ -189,13 +189,17 @@ public class Window_Inicio implements KeyListener{
 	//crea matriz para las posiciones de los numeros y los carga con los valores de cada boton
 	private void cargarMatriz() {
 		posNum = new int[3][3];
-		int k = 0;
+		int k =0;
 		for (int i = 0; i < posNum.length; i++) {
 			for (int j = 0; j < posNum.length; j++) {
-				posNum[i][j] = Integer.parseInt(botones.get(k).getText());
+				posNum[i][j] = Integer.parseInt(valorBtn(k));
 				k++;
 			}
 		}
+	}
+
+	private String valorBtn(int k) {
+		return botones.get(k).getText();
 	}
 
 	//array con los botones 
