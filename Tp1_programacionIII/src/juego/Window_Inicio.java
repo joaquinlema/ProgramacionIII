@@ -73,6 +73,28 @@ public class Window_Inicio {
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
 		
+		JLabel lblTiempo = new JLabel("Tiempo:");
+		lblTiempo.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblTiempo.setBounds(195, -1, 57, 16);
+		frame.getContentPane().add(lblTiempo);
+		
+		JLabel lblJugador = new JLabel("Jugador:");
+		lblJugador.setBounds(10, 0, 57, 14);
+		frame.getContentPane().add(lblJugador);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(63, 0, 89, 14);
+		frame.getContentPane().add(lblNewLabel);
+		lblNewLabel.setText(nom);
+		
+		JLabel lblMov = new JLabel("Mov:");
+		lblMov.setBounds(305, 0, 46, 14);
+		frame.getContentPane().add(lblMov);
+		
+		JLabel lblContMov = new JLabel("0");
+		lblContMov.setBounds(331, 0, 46, 14);
+		frame.getContentPane().add(lblContMov);		
+		
 		JButton btn1 = new JButton("1");
 		btn1.setBounds(10, 27, 127, 71);
 		frame.getContentPane().add(btn1);
@@ -110,15 +132,6 @@ public class Window_Inicio {
 		frame.getContentPane().add(btn9);
 		btn9.setVisible(false);
 		
-		JLabel lblTiempo = new JLabel("Tiempo:");
-		lblTiempo.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblTiempo.setBounds(206, 0, 57, 16);
-		frame.getContentPane().add(lblTiempo);
-		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(10, 249, 379, 2);
-		frame.getContentPane().add(separator_1);
-		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
@@ -148,12 +161,20 @@ public class Window_Inicio {
 		JSeparator separator = new JSeparator();
 		mnInicio.add(separator);
 		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setBounds(10, 18, 379, 2);
+		frame.getContentPane().add(separator_2);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(10, 249, 379, 2);
+		frame.getContentPane().add(separator_1);
+		
 		JButton btnArriba = new JButton("Arriba");
 		btnArriba.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				btn9.setVisible(true);
-				sumaMov();
+				aumentarMov(lblContMov);
 			}
 		});
 		btnArriba.setBounds(161, 262, 77, 23);
@@ -164,7 +185,7 @@ public class Window_Inicio {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				btn9.setVisible(true);
-				sumaMov();
+				aumentarMov(lblContMov);
 			}
 		});
 		btnAbajo.setBounds(161, 308, 77, 23);
@@ -175,7 +196,7 @@ public class Window_Inicio {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				btn9.setVisible(true);
-				sumaMov();
+				aumentarMov(lblContMov);
 			}
 		});
 		btnIzquierda.setBounds(109, 285, 89, 23);
@@ -186,22 +207,14 @@ public class Window_Inicio {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				btn9.setVisible(true);
-				sumaMov();
+				aumentarMov(lblContMov);
 			}
 		});
 		btnDerecha.setBounds(196, 285, 89, 23);
 		frame.getContentPane().add(btnDerecha);
 		
-		JLabel lblJugador = new JLabel("Jugador:");
-		lblJugador.setBounds(10, 0, 57, 14);
-		frame.getContentPane().add(lblJugador);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(63, 0, 89, 14);
-		frame.getContentPane().add(lblNewLabel);
-		lblNewLabel.setText(nom);
-		
 		cargarBtnVal(btn1, btn2, btn4, btn7, btn3, btn5, btn6, btn8, btn9);
+		
 		cargarMatriz();
 		
 	}
@@ -222,8 +235,12 @@ public class Window_Inicio {
 		return botones.get(k).getText();
 	}
 	
-	private int sumaMov(){
+	private int sumarMov(){
 		return cantMov++;
+	}
+	
+	private void aumentarMov(JLabel lblContMov) {
+		lblContMov.setText(""+sumarMov());
 	}
 
 	private void cargarBtnVal(JButton btn1, JButton btn2, JButton btn4, JButton btn7, JButton btn3, JButton btn5,
