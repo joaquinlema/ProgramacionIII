@@ -29,9 +29,7 @@ public class Window_Inicio {
 	private JFrame frame;
 	private int[][] posNum;
 	private ArrayList<JButton> botones;
-	private int contMov;
-	private String prueba;
-	private JTextField txtTiempo;
+	private int cantMov;
 	/**
 	 * Launch the application.
 	 */
@@ -155,20 +153,42 @@ public class Window_Inicio {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				btn9.setVisible(true);
+				sumaMov();
 			}
 		});
 		btnArriba.setBounds(161, 262, 77, 23);
 		frame.getContentPane().add(btnArriba);
 		
 		JButton btnAbajo = new JButton("Abajo");
+		btnAbajo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btn9.setVisible(true);
+				sumaMov();
+			}
+		});
 		btnAbajo.setBounds(161, 308, 77, 23);
 		frame.getContentPane().add(btnAbajo);
 		
 		JButton btnIzquierda = new JButton("Izquierda");
+		btnIzquierda.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btn9.setVisible(true);
+				sumaMov();
+			}
+		});
 		btnIzquierda.setBounds(109, 285, 89, 23);
 		frame.getContentPane().add(btnIzquierda);
 		
 		JButton btnDerecha = new JButton("Derecha");
+		btnDerecha.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btn9.setVisible(true);
+				sumaMov();
+			}
+		});
 		btnDerecha.setBounds(196, 285, 89, 23);
 		frame.getContentPane().add(btnDerecha);
 		
@@ -201,8 +221,11 @@ public class Window_Inicio {
 	private String valorBtn(int k) {
 		return botones.get(k).getText();
 	}
+	
+	private int sumaMov(){
+		return cantMov++;
+	}
 
-	//array con los botones 
 	private void cargarBtnVal(JButton btn1, JButton btn2, JButton btn4, JButton btn7, JButton btn3, JButton btn5,
 			JButton btn6, JButton btn8, JButton btn9) {
 		botones = new ArrayList<>();
